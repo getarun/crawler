@@ -9,4 +9,3 @@ By default it looks into  /home/ga32xan/Network/LT_Testdata/ and writes files to
 home/ga32xan/Network/private/Promotion/Daten/"description"
 
 have Fun! :D
-
