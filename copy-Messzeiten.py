@@ -13,6 +13,13 @@ import glob
 patt = re.compile("[^\t]+")
 
 def get_dates_from_written_file(writtenfile):
+	if verbose: 
+		print("This is a little python crawler which looks up all the files present in the search-folder with os.walk")
+		print("Please give it a folder to search (search-folder) and a folder to copy (copy-folder) to.")
+		print("Interaction with files in th search-folder will only happen with shutil.copy2(item,destination) - no write-action happens in the search folder.")
+	directory = raw_input('search-folder: )'
+	destination_input = raw_input('copy-folder: )'
+	
 	if verbose: print("Getting dates from " + writtenfile)
 	with open(writtenfile) as in_file:
 		lines = in_file.readlines()[1:]		#skip first row as it contains just some labeling #testing
@@ -28,10 +35,10 @@ def get_dates_from_written_file(writtenfile):
 				print ("entries:"+ entry[0]+" "+entry[1]+" "+entry[2])
 
 #			directory = "/home/ga32xan/Network/LT_Testdata/"
-			directory = "/home/ga32xan/Desktop/temp"
+	#		directory = "/home/ga32xan/Desktop/temp"
 
 #			destination = "/home/ga32xan/Network/private/Promotion/Daten/" + entry[2]
-			destination = "/home/ga32xan/Desktop/temp/" + entry[2]
+			destination = destination_input + entry[2]
 			if not os.path.exists(destination):
 			    os.makedirs(destination)
 
